@@ -31,8 +31,6 @@ jobs:
                   changelog: '${{ github.event.release.body }}'
                   java: |
                       17
-                  files: |
-                      fabric/build/libs/!(*-@(sources|shadow)).jar
-                      forge/build/libs/!(*-@(sources|shadow)).jar
+                  files: '*(fabric|forge)/build/libs/!(*-@(sources|shadow)).jar'
                   github-tag: '${{ github.event.release.tag_name }}'
                   github-token: '${{ secrets.GITHUB_TOKEN }}'
