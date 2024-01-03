@@ -19,7 +19,7 @@ jobs:
                   java-version: 17
                   cache: gradle
             - name: Change Version
-              run: sed -i 's/mod_version=*/mod_version=${{ github.event.release.tag_name }}/g' gradle.properties
+              run: sed -i 's/.*mod_version=*.*/mod_version=${{ github.event.release.tag_name }}/g' gradle.properties
             - name: Build
               run: ./gradlew clean build
             - name: Publish
