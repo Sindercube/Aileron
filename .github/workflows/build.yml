@@ -1,11 +1,6 @@
-'on':
+on:
     release:
-        types:
-            - published
-env:
-    MODRINTH_ID: XXXXXXXX
-    CURSEFORGE_ID: '000000'
-    RELEASE_TYPE: release
+        types: [published]
 jobs:
     publish:
         runs-on: ubuntu-latest
@@ -23,7 +18,7 @@ jobs:
             - name: Build
               run: ./gradlew clean build
             - name: Publish
-              uses: Kir-Antipov/mc-publish@v3.2
+              uses: Kir-Antipov/mc-publish@v3.3
               with:
                   name: 'Aileron v${{ github.event.release.tag_name }}'
                   version: '${{ github.event.release.tag_name }}'
